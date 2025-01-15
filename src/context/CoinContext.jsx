@@ -4,6 +4,8 @@ export const CoinContext = createContext();
 
 const CoinContextProvider = (props) => {
 
+    const [allCoins, setAllCoins] = useState([]);
+
     const contextValue = {
 
     }
