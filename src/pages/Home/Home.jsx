@@ -7,6 +7,23 @@ const Home = () => {
 
   const [displayCoin, setDisplayCoin] = useState([]);
 
+  const [input, setInput] = useState('');
+
+  const inputHandler = (event) => {
+    setInput(event.target.value);
+    if (event.target.value === '') {
+      setDisplayCoin(allCoins);
+    }
+  }
+
+  const searchHandler = async (event) => {
+    event.preventDefault();
+    const coins = await allCoins.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setDisplayCoin(coins);
+  }
+
   useEffect(() => {
     setDisplayCoin(allCoins); // Use allCoins here
   }, [allCoins]);
@@ -21,8 +38,17 @@ const Home = () => {
           Welcome to the world's largest cryptocurrency marketplace. Sign up to
           explore more about cryptos
         </p>
-        <form>
-          <input type="text" placeholder="Search crypto.." />
+        <form onSubmit={searchHandler}>
+          <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder="Search crypto.." required/>
+
+          <datalist id="coinlist">
+            {allCoins.map((item, index) => (
+              <option key={index} value={item.name} />
+            ))}
+          </datalist>
+
+
+
           <button type="submit">Search</button>
         </form>
       </div>
