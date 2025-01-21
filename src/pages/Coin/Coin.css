@@ -1,3 +1,4 @@
+/* Spinner styles */
 .spinner {
     display: flex;
     justify-content: center;
@@ -11,11 +12,91 @@
     border: 5px solid #bdbdbd;
     border-top-color: #4500c6;
     border-radius: 50%;
-    animation: rotate 0.8s linear infinite; /* Reduced duration for smoother animation */
+    animation: rotate 0.8s linear infinite;
 }
 
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+/* Main coin container */
+.coin {
+    padding: 0 20px;
+}
+
+/* Coin name styles */
+.coin-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 100px auto;
+    margin-bottom: 50px;
+}
+
+.coin-name img {
+    max-width: 100%;
+    height: auto; /* Ensure the image scales proportionally */
+    max-height: 120px; /* Limit maximum height for consistency */
+    object-fit: contain; /* Prevent distortion */
+}
+
+.coin-name p b {
+    font-size: 44px;
+    font-weight: 500;
+}
+
+/* Coin chart styles */
+.coin-chart {
+    display: flex;
+    justify-content: center; /* Center the chart horizontally */
+    align-items: center; /* Center the chart vertically */
+    max-width: 100%; /* Allow full width on smaller devices */
+    height: auto; /* Adjust height to maintain aspect ratio */
+    min-height: 250px; /* Ensure a minimum height for visibility */
+    margin: auto;
+    padding: 10px; /* Add some padding for better spacing */
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
+}
+
+/* Coin information styles */
+.coin-info {
+    max-width: 600px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.coin-info ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+    border-bottom: 1px solid #5f5d5f;
+    list-style: none;
+}
+
+.coin-info ul li:last-child {
+    font-weight: 300;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .coin-name p b {
+        font-size: 28px; /* Reduce font size for smaller screens */
+    }
+
+    .coin-chart {
+        min-height: 200px; /* Reduce chart height for smaller screens */
+    }
+
+    .coin-info ul {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Add spacing between items */
+    }
+
+    .coin-info ul li {
+        text-align: left; /* Align text to the left for readability */
     }
 }
